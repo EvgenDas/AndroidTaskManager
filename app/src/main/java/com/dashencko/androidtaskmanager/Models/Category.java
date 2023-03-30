@@ -6,7 +6,6 @@ public class Category {
 
     private String title;
 
-    String name;
 
     public Category(int id, String title) {
         this.id = id;
