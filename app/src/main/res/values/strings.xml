@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AndroidTaskManager</string>
+    <string name="main">Главная</string>
+    <string name="today_tasks">Все задачи</string>
+    <string name="About_us">Про нас</string>
 </resources>
