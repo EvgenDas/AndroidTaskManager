@@ -68,7 +68,7 @@
             android:id="@+id/categoryRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="23dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -188,13 +188,15 @@
             android:id="@+id/taskRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="150dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout1"
-            app:layout_constraintTop_toBottomOf="@+id/categoryRecycler" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryRecycler"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

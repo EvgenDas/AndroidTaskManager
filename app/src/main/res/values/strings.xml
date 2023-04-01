@@ -3,4 +3,7 @@
     <string name="main">Главная</string>
     <string name="today_tasks">Все задачи</string>
     <string name="About_us">Про нас</string>
+    <string name="Name">Имя выполнителя</string>
+    <string name="priority">Приоритет</string>
+    <string name="task_description">Описание задачи</string>
 </resources>

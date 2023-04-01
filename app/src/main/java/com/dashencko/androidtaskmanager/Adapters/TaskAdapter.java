@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dashencko.androidtaskmanager.Models.Task;
 import com.dashencko.androidtaskmanager.R;
+import com.dashencko.androidtaskmanager.TaskPage;
 
 import java.util.List;
 
@@ -36,35 +37,34 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
 
     @Override
-    public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.taskBg.setCardBackgroundColor(Color.parseColor(tasks.get(position).getColor()));
 
 
 
         holder.taskTitle.setText(tasks.get(position).getTitle());
-        holder.taskDescription.setText(tasks.get(position).getDescription());
+//        holder.taskDescription.setText(tasks.get(position).getDescription());
         holder.taskPriority.setText(tasks.get(position).getPriority());
-//        holder.taskName.setText(tasks.get(position).getName()); разобраться, почему выходит null
+        holder.taskName.setText(tasks.get(position).getName());
 
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, TasPage.class);
-//                intent.putExtra("courseBg", Color.parseColor(courses.get(position).getColor()));
-//                intent.putExtra("courseImage", imageId);
-//                intent.putExtra("courseTitle", courses.get(position).getTitle());
-//                intent.putExtra("courseDate", courses.get(position).getDate());
-//                intent.putExtra("courseLevel", courses.get(position).getLevel());
-//                intent.putExtra("courseText", courses.get(position).getText());
-//
-//                context.startActivity(intent);
-//
-//
-//
-//                context.startActivity(intent);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TaskPage.class);
+                intent.putExtra("taskBg", Color.parseColor(tasks.get(position).getColor()));
+                intent.putExtra("taskTitle", tasks.get(position).getTitle());
+                intent.putExtra("taskPriority", tasks.get(position).getPriority());
+                intent.putExtra("taskDescription", tasks.get(position).getDescription());
+                intent.putExtra("taskName", tasks.get(position).getName());
+
+                context.startActivity(intent);
+
+
+
+                context.startActivity(intent);
+            }
+        });
     }
 
 
@@ -83,7 +83,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
             taskBg = itemView.findViewById(R.id.taskBg);
             taskTitle = itemView.findViewById(R.id.taskTitle);
-            taskDescription = itemView.findViewById(R.id.taskDescription);
+            taskName = itemView.findViewById(R.id.taskName);
             taskPriority = itemView.findViewById(R.id.taskPriority);
 
         }

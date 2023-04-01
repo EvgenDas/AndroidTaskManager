@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setCategoryRecycler(categoryList);
 
         List<Task> taskList = new ArrayList<>();
-        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "E", "1", "#9C2CF3"));
-        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "V", "1", "#9C2CF3"));
-        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "G", "2", "#9C2CF3"));
+        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3"));
+        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3"));
+        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3"));
 
 
 
