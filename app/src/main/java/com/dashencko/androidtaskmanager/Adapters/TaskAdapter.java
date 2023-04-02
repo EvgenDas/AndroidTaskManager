@@ -20,7 +20,7 @@ import com.dashencko.androidtaskmanager.TaskPage;
 
 import java.util.List;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder>{
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
     Context context;
     List<Task> tasks;
 
@@ -41,7 +41,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.taskBg.setCardBackgroundColor(Color.parseColor(tasks.get(position).getColor()));
 
 
-
         holder.taskTitle.setText(tasks.get(position).getTitle());
 //        holder.taskDescription.setText(tasks.get(position).getDescription());
         holder.taskPriority.setText(tasks.get(position).getPriority());
@@ -57,10 +56,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 intent.putExtra("taskPriority", tasks.get(position).getPriority());
                 intent.putExtra("taskDescription", tasks.get(position).getDescription());
                 intent.putExtra("taskName", tasks.get(position).getName());
-
-                context.startActivity(intent);
-
-
 
                 context.startActivity(intent);
             }

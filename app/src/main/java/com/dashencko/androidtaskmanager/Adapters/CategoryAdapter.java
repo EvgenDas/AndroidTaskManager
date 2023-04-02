@@ -1,6 +1,7 @@
 package com.dashencko.androidtaskmanager.Adapters;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dashencko.androidtaskmanager.MainActivity;
 import com.dashencko.androidtaskmanager.Models.Category;
 import com.dashencko.androidtaskmanager.R;
 
@@ -34,9 +36,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.categoryTitle.setText(categories.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.showTaskByCategory(categories.get(position).getId());
+            }
+        });
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                view.
+//                MainActivity.showAllTask(categories.get(0).getId());
+//            }
+//        });
     }
+
 
     @Override
     public int getItemCount() {

@@ -5,7 +5,9 @@ import java.util.Date;
 
 public class Task {
 
-    int id;
+    private int id;
+
+    private int category;
     private String title, description, elapsed_time, name, status, color;
     private String priority;
     private LocalDate estimate_date;
@@ -25,13 +27,14 @@ public class Task {
         this.today_date = today_date;
     }
 
-    public Task(int id, String title, String description, String name, String priority, String color) {
+    public Task(int id, String title, String description, String name, String priority, String color, int category) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.name = name;
         this.priority = priority;
         this.color = color;
+        this.category = category;
     }
 
     public int getId() {
@@ -120,5 +123,14 @@ public class Task {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 }

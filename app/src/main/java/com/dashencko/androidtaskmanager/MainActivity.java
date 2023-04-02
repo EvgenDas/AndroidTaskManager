@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.dashencko.androidtaskmanager.Adapters.CategoryAdapter;
@@ -18,7 +19,12 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView categoryRecycler, taskRecycler;
     CategoryAdapter categoryAdapter;
 
-    TaskAdapter taskAdapter;
+    static TaskAdapter taskAdapter;
+
+    static List<Task> taskList = new ArrayList<>();
+
+    static List<Task> FullTaskList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +34,20 @@ public class MainActivity extends AppCompatActivity {
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category(1, "Мои задачи"));
-        categoryList.add(new Category(2, "Выполняются"));
-        categoryList.add(new Category(3, "Завершённые"));
-        categoryList.add(new Category(4, "Отменённые"));
-        categoryList.add(new Category(4, "Удалённые"));
+        categoryList.add(new Category(2, "Открытые"));
+        categoryList.add(new Category(3, "Выполняются"));
+        categoryList.add(new Category(4, "Завершённые"));
+        categoryList.add(new Category(5, "Отменённые"));
+        categoryList.add(new Category(6, "Удалённые"));
 
         setCategoryRecycler(categoryList);
 
-        List<Task> taskList = new ArrayList<>();
-        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3"));
-        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3"));
-        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3"));
 
+        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2));
+        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3));
+        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4));
 
+        FullTaskList.addAll(taskList);
 
 
         setTaskRecycler(taskList);
@@ -67,4 +74,30 @@ public class MainActivity extends AppCompatActivity {
         categoryRecycler.setAdapter(categoryAdapter);
 
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public static void showTaskByCategory(int category) {
+        if(category == 1) {
+            taskList.clear();
+            taskList.addAll(FullTaskList);
+            taskAdapter.notifyDataSetChanged();
+        } else {
+            List<Task> filterTask = new ArrayList<>();
+
+            FullTaskList.forEach(x -> {
+                if (x.getCategory() == category)
+                    filterTask.add(x);
+            });
+
+            taskList.clear();
+            taskList.addAll(filterTask);
+
+            taskAdapter.notifyDataSetChanged();
+            
+        }
+
+
+    }
+
+
 }
