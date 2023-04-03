@@ -9,12 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="66dp"
-        android:layout_height="29dp"
+        android:layout_width="97dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="7dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_1" />
+        app:srcCompat="@drawable/rectangle_11" />
 
     <TextView
         android:id="@+id/categoryTitle"
@@ -23,7 +24,7 @@
         android:fontFamily="@font/montserrat"
         android:text="Мои задачи"
         android:textColor="@color/black"
-        android:textSize="9sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"

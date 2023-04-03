@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 
 import com.dashencko.androidtaskmanager.Adapters.CategoryAdapter;
 import com.dashencko.androidtaskmanager.Adapters.TaskAdapter;
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private ArrayAdapter<String> itemsAdapter;
     RecyclerView categoryRecycler, taskRecycler;
     CategoryAdapter categoryAdapter;
 
@@ -42,13 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
         setCategoryRecycler(categoryList);
 
-
         taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2));
         taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3));
         taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4));
 
         FullTaskList.addAll(taskList);
-
 
         setTaskRecycler(taskList);
     }
@@ -74,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
         categoryRecycler.setAdapter(categoryAdapter);
 
     }
+    public void onAddItem(View v) {
+        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+        String itemText = etNewItem.getText().toString();
+        itemsAdapter.add(itemText);
+        etNewItem.setText("");
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     public static void showTaskByCategory(int category) {
@@ -88,16 +96,10 @@ public class MainActivity extends AppCompatActivity {
                 if (x.getCategory() == category)
                     filterTask.add(x);
             });
-
             taskList.clear();
             taskList.addAll(filterTask);
-
             taskAdapter.notifyDataSetChanged();
             
         }
-
-
     }
-
-
 }

@@ -45,14 +45,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 MainActivity.showTaskByCategory(categories.get(position).getId());
             }
         });
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                view.
-//                MainActivity.showAllTask(categories.get(0).getId());
-//            }
-//        });
     }
 
 

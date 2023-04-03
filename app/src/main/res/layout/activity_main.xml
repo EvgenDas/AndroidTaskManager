@@ -68,10 +68,11 @@
             android:id="@+id/categoryRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="@+id/imageView3"
             app:layout_constraintVertical_bias="0.0"
@@ -79,8 +80,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="49dp"
-            android:layout_height="28dp"
+            android:layout_width="72dp"
+            android:layout_height="37dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="534dp"
@@ -198,19 +199,43 @@
             app:layout_constraintTop_toBottomOf="@+id/categoryRecycler"
             app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+
+        <ImageButton
+            android:id="@+id/btnAddItem"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="157dp"
             android:layout_marginTop="73dp"
             android:layout_marginEnd="157dp"
             android:layout_marginBottom="30dp"
+            android:background="#00FFFFFF"
+            android:onClick="onAddItem"
+            android:src="@drawable/add_svgrepo_com"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/constraintLayout1"
             app:layout_constraintTop_toBottomOf="@+id/taskRecycler"
-            app:srcCompat="@drawable/add_svgrepo_com" />
+            tools:src="@drawable/add_svgrepo_com" />
+
+        <EditText
+            android:id="@+id/etNewItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/btnAddItem"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="71dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="34dp"
+            android:layout_toStartOf="@+id/btnAddItem"
+            android:layout_toLeftOf="@+id/btnAddItem"
+            android:hint="Enter a new item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAddItem"
+            app:layout_constraintTop_toBottomOf="@+id/taskRecycler" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

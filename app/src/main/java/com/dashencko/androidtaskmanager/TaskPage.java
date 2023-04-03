@@ -22,7 +22,7 @@ public class TaskPage extends AppCompatActivity  {
 
         taskBg.setBackgroundColor(getIntent().getIntExtra("taskBg", 0));
         taskTitle.setText(getIntent().getStringExtra("taskTitle"));
-        taskName.setText(getIntent().getStringExtra("taskTitle"));
+        taskName.setText(getIntent().getStringExtra("taskName"));
         taskPriority.setText(getIntent().getStringExtra("taskPriority"));
         taskDescription.setText(getIntent().getStringExtra("taskDescription"));
 
