@@ -1,11 +1,18 @@
 package com.dashencko.androidtaskmanager.Models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.time.LocalDate;
 import java.util.Date;
 
+@Entity(tableName = "task_table")
 public class Task {
 
-    private int id;
+    @ColumnInfo(name = "task_id")
+    @PrimaryKey(autoGenerate = true)
+    private long id;
 
     private int category;
     private String title, description, elapsed_time, name, status, color;
@@ -14,8 +21,7 @@ public class Task {
     private LocalDate actual_date;
     private LocalDate today_date;
 
-    public Task(int id, String title, String description, String elapsed_time, String name, String status, String priority, LocalDate estimate_date, LocalDate actual_date, LocalDate today_date) {
-        this.id = id;
+    public Task(String title, String description, String elapsed_time, String name, String status, String priority, LocalDate estimate_date, LocalDate actual_date, LocalDate today_date) {
         this.title = title;
         this.description = description;
         this.elapsed_time = elapsed_time;
@@ -37,7 +43,7 @@ public class Task {
         this.category = category;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -132,5 +138,23 @@ public class Task {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", category=" + category +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", elapsed_time='" + elapsed_time + '\'' +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", color='" + color + '\'' +
+                ", priority='" + priority + '\'' +
+                ", estimate_date=" + estimate_date +
+                ", actual_date=" + actual_date +
+                ", today_date=" + today_date +
+                '}';
     }
 }

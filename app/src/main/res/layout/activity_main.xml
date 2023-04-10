@@ -201,41 +201,22 @@
 
 
         <ImageButton
-            android:id="@+id/btnAddItem"
+            android:id="@+id/buttonAddItem"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="157dp"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="73dp"
-            android:layout_marginEnd="157dp"
+            android:layout_marginEnd="182dp"
             android:layout_marginBottom="30dp"
             android:background="#00FFFFFF"
-            android:onClick="onAddItem"
+            android:onClick="addItem"
             android:src="@drawable/add_svgrepo_com"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/constraintLayout1"
             app:layout_constraintTop_toBottomOf="@+id/taskRecycler"
+            app:layout_constraintVertical_bias="0.0"
             tools:src="@drawable/add_svgrepo_com" />
-
-        <EditText
-            android:id="@+id/etNewItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btnAddItem"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="71dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="34dp"
-            android:layout_toStartOf="@+id/btnAddItem"
-            android:layout_toLeftOf="@+id/btnAddItem"
-            android:hint="Enter a new item"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnAddItem"
-            app:layout_constraintTop_toBottomOf="@+id/taskRecycler" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

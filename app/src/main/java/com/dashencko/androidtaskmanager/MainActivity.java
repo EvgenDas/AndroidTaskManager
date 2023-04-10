@@ -5,10 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dashencko.androidtaskmanager.Adapters.CategoryAdapter;
 import com.dashencko.androidtaskmanager.Adapters.TaskAdapter;
@@ -19,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayAdapter<String> itemsAdapter;
+
     RecyclerView categoryRecycler, taskRecycler;
     CategoryAdapter categoryAdapter;
 
@@ -28,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     static List<Task> taskList = new ArrayList<>();
 
     static List<Task> FullTaskList = new ArrayList<>();
+
+
+
 
 
     @Override
@@ -51,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
         taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4));
 
         FullTaskList.addAll(taskList);
-
         setTaskRecycler(taskList);
+
     }
+
+
 
     private void setTaskRecycler(List<Task> taskList) {
 
@@ -76,11 +85,14 @@ public class MainActivity extends AppCompatActivity {
         categoryRecycler.setAdapter(categoryAdapter);
 
     }
-    public void onAddItem(View v) {
-        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
-        String itemText = etNewItem.getText().toString();
-        itemsAdapter.add(itemText);
-        etNewItem.setText("");
+    public void addItem(View view) {
+        Toast.makeText(this, "Добавление", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AddPage.class);
+        startActivity(intent);
+
+
+
+
     }
 
     @SuppressLint("NotifyDataSetChanged")

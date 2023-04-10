@@ -8,6 +8,7 @@
     <string name="task_description">Описание задачи</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_todo_hint">Task title</string>
+    <string name="enter_todo_hint_description">Task description</string>
     <string name="today_calendar_button">Today</string>
     <string name="empty_field">Empty task</string>
     <string name="due_date_text">Due Date</string>
