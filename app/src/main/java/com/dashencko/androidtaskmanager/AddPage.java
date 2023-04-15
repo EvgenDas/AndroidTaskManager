@@ -3,27 +3,28 @@ package com.dashencko.androidtaskmanager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dashencko.androidtaskmanager.Models.Task;
-import com.google.android.material.textview.MaterialTextView;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
+import java.util.Calendar;
 
 public class AddPage extends AppCompatActivity {
-    public static final String TAG = "AddPage";
+    TextView mTv;
 
     EditText enter_todo_et, editTextPriority, editTextDescription, editTextName;
+    Calendar calendar;
+    DatePickerDialog datePickerDialog;
+    LocalDate ld = LocalDate.of(2016, 2, 4);
+
+
 
 
 
@@ -36,45 +37,25 @@ public class AddPage extends AppCompatActivity {
         editTextPriority = (EditText) findViewById(R.id.editTextPriority);
         editTextDescription = (EditText) findViewById(R.id.editTextDescription);
         editTextName = (EditText) findViewById(R.id.editTextName);
+        calendar = Calendar.getInstance();
+        mTv = (TextView)findViewById(R.id.textView7);
+
+
 
     }
 
     @SuppressLint("NotifyDataSetChanged")
     public void updateText(View view) {
 
-        CalendarView calendarView = findViewById(R.id.calendarView);
-
-
-        final int[] estimate_date = new int[3];
-        estimate_date[0] = 0;
-        estimate_date[1] = 1;
-        estimate_date[2] = 2;
-	    calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-                @Override
-                public void onSelectedDayChange(CalendarView view, int year,
-                int month, int dayOfMonth) {
-
-                    estimate_date[0] = year;
-                    estimate_date[1] = month;
-                    estimate_date[2] = dayOfMonth;
-                    String date = year + "/" + month + "/" + dayOfMonth;
-                    Log.d(TAG, "onSelectedDayChange: date: " + date);
-                    System.out.println("###############################");
-
-                }
-            });
-
-
-        LocalDate date = LocalDate.now();
-
-
-
         MainActivity.taskList.clear();
         MainActivity.FullTaskList.clear();
 
 
-        MainActivity.taskList.add(new Task(10, enter_todo_et.getText().toString(), editTextDescription.getText().toString(), editTextName.getText().toString(), editTextPriority.getText().toString(), "#9C2CF3", 2, date));
+
+        MainActivity.taskList.add(new Task(10, enter_todo_et.getText().toString(), editTextDescription.getText().toString(), editTextName.getText().toString(), editTextPriority.getText().toString(), "#9C2CF3", 2, ld));
+
+        System.out.println(ld);
+        System.out.println("_______________________________________________________");
 
 
         MainActivity.taskAdapter.notifyDataSetChanged();
@@ -82,6 +63,26 @@ public class AddPage extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
+    }
+
+    public void updateDate(View view) {
+
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+
+
+        datePickerDialog = new DatePickerDialog(AddPage.this, new DatePickerDialog.OnDateSetListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                ld = LocalDate.of(mYear, (mMonth + 1), mDay);
+                mTv.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
+            }
+
+        }, day, month, year);
+
+        datePickerDialog.show();
 
 
     }

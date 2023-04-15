@@ -55,6 +55,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 intent.putExtra("taskPriority", tasks.get(position).getPriority());
                 intent.putExtra("taskDescription", tasks.get(position).getDescription());
                 intent.putExtra("taskName", tasks.get(position).getName());
+                intent.putExtra("taskEstimateDate", tasks.get(position).getEstimate_date().toString());
 
                 context.startActivity(intent);
             }
@@ -69,7 +70,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public static final class TaskViewHolder extends RecyclerView.ViewHolder {
 
         CardView taskBg;
-        TextView taskTitle, taskDescription, taskPriority, taskName;
+        TextView taskTitle, taskPriority, taskName;
 
 
         public TaskViewHolder(@NonNull View itemView) {

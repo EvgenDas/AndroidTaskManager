@@ -27,7 +27,7 @@
         android:id="@+id/save_todo_button"
         android:layout_width="70dp"
         android:layout_height="72dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="83dp"
         android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         android:contentDescription="TODO"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/ic_baseline_arrow_circle_up_24" />
 
     <EditText
@@ -66,6 +66,7 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -86,15 +87,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="289dp"
-        android:layout_height="271dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/save_todo_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPriority" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="UPDATE_DATE"
+        android:onClick="updateDate"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPriority"
+        app:srcCompat="@drawable/ic_baseline_today_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

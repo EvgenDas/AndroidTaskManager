@@ -19,6 +19,7 @@ import com.dashencko.androidtaskmanager.Adapters.TaskAdapter;
 import com.dashencko.androidtaskmanager.Models.Category;
 import com.dashencko.androidtaskmanager.Models.Task;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         setCategoryRecycler(categoryList);
 
-        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2));
-        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3));
-        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4));
+        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3, LocalDate.now()));
+        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4, LocalDate.now()));
 
         FullTaskList.addAll(taskList);
         setTaskRecycler(taskList);
@@ -89,9 +90,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Добавление", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AddPage.class);
         startActivity(intent);
-
-
-
 
     }
 

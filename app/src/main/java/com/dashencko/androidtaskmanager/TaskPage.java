@@ -1,7 +1,6 @@
 package com.dashencko.androidtaskmanager;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,14 +18,15 @@ public class TaskPage extends AppCompatActivity  {
         TextView taskName = findViewById(R.id.taskPageName);
         TextView taskPriority = findViewById(R.id.taskPagePriority);
         TextView taskDescription = findViewById(R.id.taskPageDescription);
-        TextView taskDate = findViewById(R.id.taskPageEstimateDate);
+        TextView taskEstimateDate = findViewById(R.id.taskPageEstimateDate);
+
 
         taskBg.setBackgroundColor(getIntent().getIntExtra("taskBg", 0));
         taskTitle.setText(getIntent().getStringExtra("taskTitle"));
         taskName.setText(getIntent().getStringExtra("taskName"));
         taskPriority.setText(getIntent().getStringExtra("taskPriority"));
         taskDescription.setText(getIntent().getStringExtra("taskDescription"));
-        taskDescription.setText(getIntent().getStringExtra("taskDate"));
+        taskEstimateDate.setText(getIntent().getStringExtra("taskEstimateDate"));
 
 
 
