@@ -1,17 +1,13 @@
 package com.dashencko.androidtaskmanager.Models;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+
 
 import java.time.LocalDate;
 import java.util.Date;
 
-@Entity(tableName = "task_table")
+
 public class Task {
 
-    @ColumnInfo(name = "task_id")
-    @PrimaryKey(autoGenerate = true)
     private long id;
 
     private int category;
@@ -53,6 +49,17 @@ public class Task {
         this.color = color;
         this.category = category;
     }
+
+    public Task(String title, String name, String priority, String status, String description, LocalDate Estimate_date) {
+        this.title = title;
+        this.description = description;
+        this.estimate_date = Estimate_date;
+        this.priority = priority;
+        this.name = name;
+        this.status = status;
+    }
+
+    public Task() {}
 
     public long getId() {
         return id;
@@ -169,3 +176,7 @@ public class Task {
                 '}';
     }
 }
+
+
+
+

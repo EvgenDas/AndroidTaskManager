@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category(1, "Мои задачи"));
         categoryList.add(new Category(2, "Открытые"));
@@ -60,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         FullTaskList.addAll(taskList);
         setTaskRecycler(taskList);
-
     }
-
 
 
     private void setTaskRecycler(List<Task> taskList) {
