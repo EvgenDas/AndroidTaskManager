@@ -57,44 +57,46 @@ public class AddPage extends AppCompatActivity {
         mTv = (TextView)findViewById(R.id.textView7);
 
         ImageButton buttonSave = findViewById(R.id.save_todo_button);
+        //////////////////////////////////////comment////////////////////////////////////////////
+//
+//        RetrofitService retrofitService = new RetrofitService();
+//        TaskApi taskApi = retrofitService.getRetrofit().create(TaskApi.class);
+//
+//        buttonSave.setOnClickListener(view -> {
+//            String title = String.valueOf(enter_todo_et.getText());
+//            String priority = String.valueOf(editTextPriority.getText());
+//            String description = String.valueOf(editTextDescription.getText());
+//            String name = String.valueOf(editTextName.getText());
+//            LocalDate estimateDate = ld;
+//            String status = "Открыта";
+//
+//            Task task = new Task();
+//            task.setTitle(title);
+//            task.setPriority(priority);
+//            task.setDescription(description);
+//            task.setName(name);
+//            task.setEstimate_date(estimateDate);
+//            task.setStatus(status);
+//
+//            taskApi.TaskAddObject(task)
+//                    .enqueue(new Callback<Task>() {
+//                        @Override
+//                        public void onResponse(Call<Task> call, Response<Task> response) {
+//                            Toast.makeText(AddPage.this, "Save successful!", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//
+//                        @Override
+//                        public void onFailure(Call<Task> call, Throwable t) {
+//                            Toast.makeText(AddPage.this, "Save failed!!!", Toast.LENGTH_SHORT).show();
+//                            Logger.getLogger(AddPage.class.getName()).log(Level.SEVERE, "Error occurred", t);
+//                        }
+//                    });
+//                    Intent intent = new Intent(this, MainActivity.class);
+//                    startActivity(intent);
+//             });
+        //////////////////////////////////////comment////////////////////////////////////////////
 
-        RetrofitService retrofitService = new RetrofitService();
-        TaskApi taskApi = retrofitService.getRetrofit().create(TaskApi.class);
-
-        buttonSave.setOnClickListener(view -> {
-            String title = String.valueOf(enter_todo_et.getText());
-            String priority = String.valueOf(editTextPriority.getText());
-            String description = String.valueOf(editTextDescription.getText());
-            String name = String.valueOf(editTextName.getText());
-            LocalDate estimateDate = ld;
-            String status = "Открыта";
-
-            Task task = new Task();
-            task.setTitle(title);
-            task.setPriority(priority);
-            task.setDescription(description);
-            task.setName(name);
-            task.setEstimate_date(estimateDate);
-            task.setStatus(status);
-
-            taskApi.TaskAddSmth(task)
-                    .enqueue(new Callback<Task>() {
-                        @Override
-                        public void onResponse(Call<Task> call, Response<Task> response) {
-                            Toast.makeText(AddPage.this, "Save successful!", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                        @Override
-                        public void onFailure(Call<Task> call, Throwable t) {
-                            Toast.makeText(AddPage.this, "Save failed!!!", Toast.LENGTH_SHORT).show();
-                            Logger.getLogger(AddPage.class.getName()).log(Level.SEVERE, "Error occurred", t);
-                        }
-                    });
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-
-             });
 
 
     }
@@ -112,8 +114,8 @@ public class AddPage extends AppCompatActivity {
 
         MainActivity.taskAdapter.notifyDataSetChanged();
 
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 

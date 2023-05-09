@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTaskRecycler(List<Task> taskList) {
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
         taskRecycler = findViewById(R.id.taskRecycler);
         taskRecycler.setLayoutManager(layoutManager);
