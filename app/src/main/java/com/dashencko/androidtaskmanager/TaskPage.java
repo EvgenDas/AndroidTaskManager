@@ -1,10 +1,17 @@
 package com.dashencko.androidtaskmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.dashencko.androidtaskmanager.Models.Task;
+
+import java.time.LocalDate;
 
 public class TaskPage extends AppCompatActivity  {
 
@@ -13,7 +20,7 @@ public class TaskPage extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_page);
 
-        ConstraintLayout taskBg = findViewById(R.id.taskPageBackground);
+        ConstraintLayout taskBg= findViewById(R.id.taskPageBackground);
         TextView taskTitle = findViewById(R.id.taskPageTitle);
         TextView taskName = findViewById(R.id.taskPageName);
         TextView taskPriority = findViewById(R.id.taskPagePriority);
@@ -27,9 +34,15 @@ public class TaskPage extends AppCompatActivity  {
         taskPriority.setText(getIntent().getStringExtra("taskPriority"));
         taskDescription.setText(getIntent().getStringExtra("taskDescription"));
         taskEstimateDate.setText(getIntent().getStringExtra("taskEstimateDate"));
+    }
+    public void addItem(View view) {
+        Toast.makeText(this, "Изменение", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AddPage.class);
+        startActivity(intent);
+    }
 
-
-
+    public void CompleteTask(View view) {
+        Toast.makeText(this, "Завершение", Toast.LENGTH_LONG).show();
 
     }
 }

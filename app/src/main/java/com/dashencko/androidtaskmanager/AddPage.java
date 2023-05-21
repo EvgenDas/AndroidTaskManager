@@ -109,7 +109,7 @@ public class AddPage extends AppCompatActivity {
 
 
 
-        MainActivity.taskList.add(new Task(10, enter_todo_et.getText().toString(), editTextDescription.getText().toString(), editTextName.getText().toString(), editTextPriority.getText().toString(), "#9C2CF3", 2, ld));
+        MainActivity.taskList.add(new Task(17, enter_todo_et.getText().toString(), editTextDescription.getText().toString(), editTextName.getText().toString(), editTextPriority.getText().toString(), "#9C2CF3", 2, ld));
 
 
         MainActivity.taskAdapter.notifyDataSetChanged();

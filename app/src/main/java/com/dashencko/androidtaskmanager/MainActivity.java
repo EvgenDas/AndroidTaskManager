@@ -1,6 +1,7 @@
 package com.dashencko.androidtaskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,9 +56,26 @@ public class MainActivity extends AppCompatActivity {
 
         setCategoryRecycler(categoryList);
 
-        taskList.add(new Task(1, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
-        taskList.add(new Task(2, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3, LocalDate.now()));
-        taskList.add(new Task(3, "Пройти курс", "Пройти курс на степике", "Борис", "2", "#9C2CF3", 4, LocalDate.now()));
+
+        taskList.add(new Task(1, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3, LocalDate.now()));
+        taskList.add(new Task(2, "Сделать контрольную", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(3, "Отправить задание", "Сделать кр до завтра", "Олег", "2", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(4, "Ответить по правкам", "Сделать кр до завтра", "Никита", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(5, "Задание по английскому", "Сделать кр до завтра", "Евгений", "3", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(6, "Подготовить доклад", "Сделать до завтра", "Влад", "2", "#9C2CF3", 3, LocalDate.now()));
+
+        taskList.add(new Task(7, "Написать программу", "Сделать до завтра", "Евгений", "4", "#9C2CF3", 3, LocalDate.now()));
+        taskList.add(new Task(8, "Готовиться к кр", "Сделать кр до завтра", "Илья", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(9, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(10, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(11, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(12, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+        taskList.add(new Task(13, "Сделать курсо", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3, LocalDate.now()));
+
+        taskList.add(new Task(14, "Сделать курсовую", "Сделать до завтра", "Игорь", "1", "#9C2CF3", 3, LocalDate.now()));
+        taskList.add(new Task(15, "Сделать кр", "Сделать кр до завтра", "Евгений", "1", "#9C2CF3", 2, LocalDate.now()));
+
+
 
         FullTaskList.addAll(taskList);
         setTaskRecycler(taskList);
@@ -65,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setTaskRecycler(List<Task> taskList) {
+        RecyclerView.LayoutManager layoutManager
+                = new GridLayoutManager(this, 2);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
         taskRecycler = findViewById(R.id.taskRecycler);
         taskRecycler.setLayoutManager(layoutManager);
@@ -108,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
             taskList.clear();
             taskList.addAll(filterTask);
             taskAdapter.notifyDataSetChanged();
-            
         }
     }
 }

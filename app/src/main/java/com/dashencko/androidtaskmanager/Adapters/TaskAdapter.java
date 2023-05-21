@@ -24,6 +24,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     Context context;
     List<Task> tasks;
 
+
     public TaskAdapter(Context context, List<Task> tasks) {
         this.context = context;
         this.tasks = tasks;
